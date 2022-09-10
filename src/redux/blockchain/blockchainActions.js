@@ -100,18 +100,18 @@ export const connect = () => {
           CONFIG.CONTRACT_ADDRESS
         );
 
-        const isPaused = await SmartContractObj.methods.pause().call(); // paused?
-        const isWLSale = await SmartContractObj.methods.whiteListSale().call(); // whitelist sale?
-        const isPSale = await SmartContractObj.methods.publicSale().call(); // public sale?
+        // const isPaused = await SmartContractObj.methods.pause().call(); // paused?
+        // const isWLSale = await SmartContractObj.methods.whiteListSale().call(); // whitelist sale?
+        // const isPSale = await SmartContractObj.methods.publicSale().call(); // public sale?
 
         dispatch(
           connectSuccess({
             account: accounts[0],
             smartContract: SmartContractObj,
             web3: web3,
-            paused: isPaused,
-            wlSale: isWLSale,
-            pSale: isPSale
+            paused: false,
+            wlSale: false,
+            pSale: false
           })
         );
         // Add listeners start
