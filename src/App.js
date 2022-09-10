@@ -295,6 +295,19 @@ function App() {
   }
 
   const claimNFTs = () => {
+    const l = CONFIG.OG.map(x => keccak256(x));
+    const tree = new MerkleTree(l, keccak256, { sortPairs: true });
+    const buf2hex = x => '0x' + x.toString('hex')
+
+    console.log('OG')
+    console.log(buf2hex(tree.getRoot()))
+
+    const l2 = CONFIG.WL.map(x => keccak256(x));
+    const tree2 = new MerkleTree(l2, keccak256, { sortPairs: true });
+    const buf2hex2 = x => '0x' + x.toString('hex')
+
+    console.log('WL')
+    console.log(buf2hex2(tree2.getRoot()))
     setErrorMsg(0);
     checkStatus();
   };
