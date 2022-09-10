@@ -551,7 +551,7 @@ function App() {
     const isWl = CONFIG.WL.map(elem => elem.toLowerCase()).includes(blockchain.account.toLowerCase());
     const isOG = CONFIG.OG.map(elem => elem.toLowerCase()).includes(blockchain.account.toLowerCase());
 
-    if (isWl || isOG) {
+    if ((blockchain.saleState === 1 && isOG) || (blockchain.saleState === 2 && isWl)) {
       setEligibile(true);
     } else {
       setEligibile(false);
