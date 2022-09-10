@@ -302,10 +302,10 @@ function App() {
 
   const checkStatus = () => {
     blockchain.smartContract.methods
-    .pause()
+    .currState()
     .call()
-    .then((paused) => {
-      if (paused) {
+    .then((state) => {
+      if (+(state) === 0) {
         alert("Minting is paused");
         resetCaptcha();
       } else {
@@ -609,7 +609,7 @@ function App() {
       <s.Container2 flex={2} image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg6.png" : null}>
       </s.Container2>
       {process.env.REACT_APP_API_KEY}
-      { isConnected && (blockchain.paused || (blockchain.wlSale && !isEligible) || (!blockchain.paused && !blockchain.wlSale && !blockchain.pSale)) ? (
+      { isConnected && (blockchain.saleState === 0 || (blockchain.wlSale && !isEligible)) ? (
         <s.Container3 flex={2}>
           <s.Container flex={2} jc={"center"} ai={"center"}>
             <s.TextTitle style={{
@@ -617,8 +617,7 @@ function App() {
               fontSize: 50,
               fontWeight: "bold",
               color: "var(--primary-text)",}}>
-              { blockchain.paused || (!blockchain.paused && !blockchain.wlSale && !blockchain.pSale) ? 
-                "Minting is not allowed at the moment" : "You are not OG/whitelisted." }
+              { blockchain.saleState === 0 ? "Minting is not allowed at the moment" : "You are not OG/whitelisted." }
             </s.TextTitle>
             <s.SpacerSmall />
             <s.TextDescription2>
