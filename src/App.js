@@ -8,8 +8,8 @@ import styled from "styled-components";
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-export const StyledButton = styled.button`
-  padding: 12px;
+  export const StyledButton = styled.button`
+  padding: 10px;
   border-radius: 50px;
   border: none;
   background-color: var(--secondary);
@@ -25,6 +25,93 @@ export const StyledButton = styled.button`
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
+  }
+`;
+
+export const StyledButton2 = styled.button`
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--secondary);
+  font-weight: bold;
+  color: var(--accent-text);
+  width: 40%;
+  font-size: 30px;
+  cursor: pointer;
+
+  :active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
+  :disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 767px) {
+    width: 60%;
+    font-size: 35px;
+  }
+`;
+
+export const StyledButton3 = styled.button`
+  all: unset;
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--secondary);
+  font-weight: bold;
+  color: var(--accent-text);
+  width: 245px;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+
+  :active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
+  :disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 35px;
+  }
+`;
+
+export const StyledButton4 = styled.button`
+  all: unset;
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--secondary);
+  font-weight: bold;
+  color: var(--accent-text);
+  width: 100%;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+
+  :active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+
+  :disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 767px) {
+    width: 60%;
+    font-size: 35px;
   }
 `;
 
@@ -53,15 +140,35 @@ export const StyledRoundButton = styled.button`
   }
 `;
 
+export const StyledRoundButton2 = styled.button`
+  border-radius: 100%;
+  border: 1px solid;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 25px;
+  color: var(--secondary-text);
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  :active {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }
+`;
+
 export const ResponsiveWrapper = styled.div`
   display: flex;
   flex: 1;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: stretched;
   align-items: stretched;
   width: 100%;
-  @media (min-width: 767px) {
-    flex-direction: row;
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
   }
 `;
 
@@ -90,7 +197,7 @@ export const StyledImg = styled.img`
 `;
 
 export const StyledLink = styled.a`
-  color: var(--secondary);
+  color: var(--accent-text);
   text-decoration: none;
 `;
 
