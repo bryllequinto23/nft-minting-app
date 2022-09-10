@@ -126,6 +126,7 @@ export const connect = () => {
         dispatch(connectFailed(`Change network to ${CONFIG.NETWORK.NAME}.`));
       }
     } catch(e) {
+      console.log(e)
       dispatch(connectFailed("Something went wrong."));
     }
     
