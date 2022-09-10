@@ -25,18 +25,35 @@ export const fetchData = () => {
   return async (dispatch) => {
     dispatch(fetchDataRequest());
     try {
+      const acc = store.getState().blockchain.account;
+
       let totalSupply = await store
         .getState()
         .blockchain.smartContract.methods.totalSupply()
         .call();
-      // let cost = await store
-      //   .getState()
-      //   .blockchain.smartContract.methods.cost()
-      //   .call();
 
+      let totalPublic = await store
+        .getState()
+        .blockchain.smartContract.methods.totalPublicMint(acc)
+        .call();
+      
+      let totalWL = await store
+        .getState()
+        .blockchain.smartContract.methods.totalWhitelistMint(acc)
+        .call();
+      
+      let totalOG = await store
+        .getState()
+        .blockchain.smartContract.methods.totalOGMint(acc)
+        .call();
+
+      // console.log(totalPublic)
       dispatch(
         fetchDataSuccess({
           totalSupply,
+          totalPublic,
+          totalWL,
+          totalOG
           // cost,
         })
       );
