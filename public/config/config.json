@@ -1,18 +1,39 @@
 {
-  "CONTRACT_ADDRESS": "0x0b18b900F7375AABDa00EEaC988116C33fb05BD2",
-  "SCAN_LINK": "https://polygonscan.com/token/0x0b18b900F7375AABDa00EEaC988116C33fb05BD2",
+  "CONTRACT_ADDRESS": "0x6c9f363F65C1A3BBA2b9337282B34Efc1E0749F5",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/token/0x6c9f363F65C1A3BBA2b9337282B34Efc1E0749F5",
   "NETWORK": {
-    "NAME": "Polygon",
-    "SYMBOL": "Matic",
-    "ID": 137
+    "NAME": "Rinkeby",
+    "SYMBOL": "ETH",
+    "ID": 4
   },
-  "NFT_NAME": "The Stripes NFT",
-  "SYMBOL": "TSNFT",
-  "MAX_SUPPLY": 992,
-  "WEI_COST": 4000000000000000000,
-  "DISPLAY_COST": 4,
+  "NFT_NAME": "Hello, Charlie!",
+  "SYMBOL": "HCHR",
+  "MAX_SUPPLY": 500,
+  "MAX_MINT_WL": 3,
+  "MAX_MINT_OG": 5,
+  "MAX_MINT_PUB": 20,
+  "WEI_COST": 1000000000000000,
+  "WEI_COST_WL": 500000000000000,
+  "WEI_COST_OG": 300000000000000,
+  "DISPLAY_COST": 0.001,
+  "DISPLAY_COST_WL": 0.0005,
+  "DISPLAY_COST_OG": 0.0003,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://opensea.io/collection/the-stripes-nft",
-  "SHOW_BACKGROUND": true
+  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/ch4rle-v5",
+  "SHOW_BACKGROUND": true,
+  "WL": [
+    "0xD69075aDeFCc90815E7f521136a3EdD28faf9914",
+    "0x4061D2E821D20F7702493EA3e21dC09C297227de",
+    "0x639f02eb1929b8fde52b06986863fa6eb2ba61ff",
+    "0xec8d8a878c6bb90857f8206d24a5c40ebf0f0bc1",
+    "0x93f0dff6709784df7121c5b0cf8b246e99e9db58",
+    "0x8523f1928d6f6730bf2a423bd08f2be273787d39",
+    "0x9fc592be43b9bae1c720ba7cc4873da55631599f",
+    "0xA4c1fB56FeCe5954828A9556Df1cC7bB29516f93",
+    "0xC37C12BabCEE3a29cFB1d3AAdF7972a537942a2a"
+  ],
+  "OG": [
+    "0xCD95B44F3c1Bf03B5fcd46db55E6F661000987b6"
+  ]
 }
