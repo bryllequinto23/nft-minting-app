@@ -256,6 +256,7 @@ function App() {
   const submitForm = () => {
     if (inputRef.current.value === '') {
       dispatch(connect());
+      alert('SUBMIT FORM GET DATA')
       getData();
     } else {
       alert('An error has occurred. Please refresh the browser and try again.')
