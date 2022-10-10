@@ -603,7 +603,6 @@ function App() {
 
 
   return (
-    
     <s.Screen2>
       <div>
         <ul className="circles">
@@ -626,15 +625,30 @@ function App() {
           <div className='mintHandler'>
             <div className='mintContainer'>
               <div className='mintContainerInner'>
-                <h2>Minted:5001/5001</h2>
-                <h3>1 Charlie = 0.001 ETH.</h3>
-                <div className='mintConatinerInnermost'>
-                <button  className="mbtn" > - </button>
-                <p>1</p>
-                <button  className="abtn" > + </button>
-                </div>
-                <ReCAPTCHA  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" className='g-recaptcha' />
-                <button   className="mntbutton" default>SOLD OUT!!!</button>    
+                {
+                  isConnected ? (
+                    <>
+                      <h2>Minted:5001/5001</h2>
+                      <h3>1 Charlie = 0.001 ETH.</h3>
+                      <div className='mintConatinerInnermost'>
+                      <button  className="mbtn" > - </button>
+                      <p>1</p>
+                      <button  className="abtn" > + </button>
+                      </div>
+                      <ReCAPTCHA  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" className='g-recaptcha' />
+                      <button   className="mntbutton" default>SOLD OUT!!!</button>   
+                    </>
+                  ) : (
+                    <>
+                      <input type="hidden" name="hp" value="" ref={inputRef}/>
+                      <StyledButton4 type="submit">
+                        CONNECT
+                      </StyledButton4>
+                    </>
+                    
+                  )
+                }
+                
               </div>
             </div> 
           </div>
