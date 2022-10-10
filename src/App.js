@@ -646,7 +646,7 @@ function App() {
                       }}>
                         <input type="hidden" name="hp" value="" ref={inputRef}/>
                         <button className="mntbutton" type="submit">
-                          CONNECT
+                          CONNECT WALLET
                         </button>
                       </form>
                       
