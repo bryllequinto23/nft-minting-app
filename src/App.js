@@ -604,18 +604,42 @@ function App() {
   return (
     
     <s.Screen2>
-      <ul className="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+      <div>
+        <ul className="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div className="mainbg">
+          <div className='imgHandler'> 
+            {/* <Image src={AstroCharlie} className='imgCharlie' alt="AstroCharlie"/> */}
+          </div>
+
+          <div className='mintHandler'>
+            <div className='mintContainer'>
+              <div className='mintContainerInner'>
+                <h2>Minted:5001/5001</h2>
+                <h3>1 Charlie = 0.001 ETH.</h3>
+                <div className='mintConatinerInnermost'>
+                <button  className="mbtn" > - </button>
+                <p>1</p>
+                <button  className="abtn" > + </button>
+                </div>
+                <ReCAPTCHA  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" className='g-recaptcha' />
+                <button   className="mntbutton" default>SOLD OUT!!!</button>    
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    
       <s.Container2 flex={2} image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg6.png" : null}>
       </s.Container2>
       {process.env.REACT_APP_API_KEY}
@@ -789,7 +813,7 @@ function App() {
           </s.Container>
         </s.Container3>
       )}
-    </s.Screen2>
+    // </s.Screen2>
   )
 }
 
