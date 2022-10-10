@@ -121,6 +121,7 @@ export const connect = () => {
         );
         // Add listeners start
         provider.on("accountsChanged", (accounts) => {
+          alert('accounts changed')
           dispatch(updateAccount(accounts[0]));
         });
         provider.on("chainChanged", () => {
