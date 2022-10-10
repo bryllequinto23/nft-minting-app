@@ -632,7 +632,7 @@ function App() {
                       <s.Container flex={2} jc={"center"} ai={"center"}>
                         <s.TextTitle style={{
                           textAlign: "center",
-                          fontSize: 50,
+                          fontSize: 45,
                           fontWeight: "bold",
                           color: "#fff3e3",}}>
                           { blockchain.saleState === 0 ? "Minting is not allowed at the moment!" : "You are not OG/whitelisted!" }
