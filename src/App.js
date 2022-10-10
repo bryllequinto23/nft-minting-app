@@ -791,13 +791,17 @@ function App() {
                                       {claimingNft ? "MINTING..." : "MINT"}
                                     </StyledButton3>
                                   </s.Container> */}
-                                  <s.SpacerSmall/>
-                                  <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                                  {/* <s.SpacerSmall/> */}
+                                  <ReCAPTCHA className='g-recaptcha'
+                                      sitekey={process.env.REACT_APP_SITE_KEY}
+                                      ref={captchaRef}
+                                      onChange={onChange}/>
+                                  {/* <s.Container ai={"center"} jc={"center"} fd={"row"}>
                                     <ReCAPTCHA className='g-recaptcha'
                                       sitekey={process.env.REACT_APP_SITE_KEY}
                                       ref={captchaRef}
                                       onChange={onChange}/>
-                                  </s.Container>
+                                  </s.Container> */}
                                   <input type="hidden" name="hp-2" value="" ref={mintRef}/>
                                 </form>
                               </>
