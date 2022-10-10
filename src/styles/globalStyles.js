@@ -12,16 +12,18 @@ export const Screen = styled.div`
   flex-direction: column;
 `;
 
-export const Screen2 = styled.div`
-  background-color: var(--primary);
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  @media (max-width: 767px) {
-    flex-direction: column-reverse;
-  }
-`;
+// export const Screen2 = styled.div`
+//   background-color: var(--primary);
+//   width: 100%;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: row;
+//   @media (max-width: 767px) {
+//     flex-direction: column-reverse;
+//   }
+// `;
+
+export const Screen2 = styled.div``;
 
 // Used for providing space between components
 export const SpacerXSmall = styled.div`
