@@ -92,6 +92,7 @@ export const connect = () => {
       let web3 = new Web3(provider);
   
       const accounts = await web3.eth.getAccounts();
+      alert(accounts)
       const networkId = await web3.eth.net.getId();
   
       if (networkId == CONFIG.NETWORK.ID) {
