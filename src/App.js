@@ -640,7 +640,7 @@ function App() {
         </div>
       </div>
     
-      <s.Container2 flex={2} image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg6.png" : null}>
+      {/* <s.Container2 flex={2} image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg6.png" : null}>
       </s.Container2>
       {process.env.REACT_APP_API_KEY}
       { isConnected && (blockchain.saleState === 0 || ((blockchain.saleState === 1 || blockchain.saleState === 2) && !isEligible)) ? (
@@ -675,12 +675,18 @@ function App() {
                   submitForm();
                 }}>
                   <input type="hidden" name="hp" value="" ref={inputRef}/>
-                  <StyledButton4 type="submit">
+                  <StyledButton4 type="submit"> */}
+
+
+
                     {/* onClick={(e) => {
                     e.preventDefault();
                     dispatch(connect());
                     getData();}}> */}
-                    CONNECT
+
+
+
+                    {/* CONNECT
                   </StyledButton4>
                 </form>
                 { blockchain.errorMsg !== "" ? (
@@ -696,19 +702,28 @@ function App() {
                 ) : null }
               </s.Container>
             ) : (
-              <>
+              <> */}
+
+
+
                 {/* <StyledButton2 onClick={(e) => {
                   e.preventDefault();
                   disconnect();}}>
                   DISCONNECT
                 </StyledButton2> */}
-                <s.TextTitle style={{
+
+
+
+                {/* <s.TextTitle style={{
                   textAlign: "center",
                   fontSize: 50,
                   fontWeight: "bold",
                   color: "var(--primary-text)",}}>
                   {data.totalSupply} / {CONFIG.MAX_SUPPLY}
-                </s.TextTitle>
+                </s.TextTitle> */}
+
+
+
                 {/* <s.TextDescription style={{
                   textAlign: "center",
                   color: "var(--accent-text)",}}>
@@ -716,7 +731,10 @@ function App() {
                     {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
                   </StyledLink>
                 </s.TextDescription> */}
-                <s.SpacerSmall />
+
+
+
+                {/* <s.SpacerSmall />
                 { Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                   <>
                     <s.TextTitle style={{ textAlign: "center", color: "var(--accent-text)" }}>
@@ -735,12 +753,18 @@ function App() {
                     <s.TextTitle style={{ textAlign: "center", color: "var(--primary-text)" }}>
                         1 Charlie = { blockchain.saleState === 3 ? CONFIG.DISPLAY_COST : (blockchain.saleState === 1 ? CONFIG.DISPLAY_COST_OG : CONFIG.DISPLAY_COST_WL)}{" "}
                         {CONFIG.NETWORK.SYMBOL}.
-                    </s.TextTitle>
+                    </s.TextTitle> */}
+
+
+
                     {/* <s.SpacerXSmall />
                     <s.TextDescription style={{ textAlign: "center", color: "var(--accent-text)" }}>
                       Excluding gas fees.
                     </s.TextDescription> */}
-                    <s.SpacerSmall />
+
+
+
+                    {/* <s.SpacerSmall />
                     { feedback !== "" ? (
                       <>
                         <s.TextDescription style={{
@@ -812,8 +836,8 @@ function App() {
             )}
           </s.Container>
         </s.Container3>
-      )}
-    // </s.Screen2>
+      )} */}
+    </s.Screen2>
   )
 }
 
