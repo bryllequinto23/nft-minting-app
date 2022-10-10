@@ -626,9 +626,29 @@ function App() {
             <div className='mintContainer'>
               <div className='mintContainerInner'>
                 {
-                  isConnected ? (
+                  isConnected && (blockchain.saleState === 0 || ((blockchain.saleState === 1 || blockchain.saleState === 2) && !isEligible)) ? (
                     <>
-                      <h2>Minted:5001/5001</h2>
+                    <s.Container3 flex={2}>
+                      <s.Container flex={2} jc={"center"} ai={"center"}>
+                        <s.TextTitle style={{
+                          textAlign: "center",
+                          fontSize: 50,
+                          fontWeight: "bold",
+                          color: "var(--primary-text)",}}>
+                          { blockchain.saleState === 0 ? "Minting is not allowed at the moment" : "You are not OG/whitelisted." }
+                        </s.TextTitle>
+                        <s.SpacerSmall />
+                        <s.TextDescription2>
+                          {walletDisplay}
+                        </s.TextDescription2>
+                        <s.TextDescription2 onClick={(e) => {
+                          e.preventDefault();
+                          disconnect();}}>
+                          DISCONNECT
+                        </s.TextDescription2>
+                      </s.Container>
+                    </s.Container3>
+                      {/* <h2>Minted:5001/5001</h2>
                       <h3>1 Charlie = 0.001 ETH.</h3>
                       <div className='mintConatinerInnermost'>
                       <button  className="mbtn" > - </button>
@@ -636,7 +656,7 @@ function App() {
                       <button  className="abtn" > + </button>
                       </div>
                       <ReCAPTCHA  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" className='g-recaptcha' />
-                      <button   className="mntbutton" default>SOLD OUT!!!</button>   
+                      <button   className="mntbutton" default>SOLD OUT!!!</button>    */}
                     </>
                   ) : (
                     <>
