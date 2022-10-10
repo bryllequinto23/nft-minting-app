@@ -122,8 +122,8 @@ export const TextDescription = styled.p`
 `;
 
 export const TextDescription2 = styled.p`
-  color: whitesmoke;
-  font-size: 16px;
+  color: #fff3e3;
+  font-size: 20px;
   line-height: 1.6;
   cursor: pointer;
 `;

@@ -352,7 +352,7 @@ margin-right: 1.5rem;
     margin-right: 0;
   }
   .mintContainer h2 {
-    font-size: 50px;
+    font-size: 45px;
     letter-spacing: 8px;
     word-spacing: 2px;
     font-weight: 200;
@@ -397,7 +397,7 @@ margin-right: 1.5rem;
 @media all and  (max-width: 768px) {
  
   .mintContainer h2 {
-    font-size: 50px;
+    font-size: 45px;
     letter-spacing: 3px;
     font-weight: 100;
   
