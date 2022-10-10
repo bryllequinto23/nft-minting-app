@@ -39,22 +39,22 @@ const providerOptions = {
   walletconnect: {
     package: WalletConnectProvider, // required
     options: {
-      infuraId: "6292cfa3cf5e46d1b7cff91402a29224" // required
+      infuraId: "2d75ec6e41fc447682a245241185d5ea" // required
     }
   },
   coinbasewallet: {
     package: CoinbaseWalletSDK, // Required
     options: {
       appName: "Hello Charlie", // Required
-      infuraId: "6292cfa3cf5e46d1b7cff91402a29224", // Required
-      chainId: 4, // Optional. It defaults to 1 if not provided
+      infuraId: "2d75ec6e41fc447682a245241185d5ea", // Required
+      chainId: 5, // Optional. It defaults to 1 if not provided
       darkMode: false // Optional. Use dark theme, defaults to false
     }
   }
 };
 
 const web3Modal = new Web3Modal({
-  network: "rinkeby", // optional
+  network: "georli", // optional
   cacheProvider: false, // optional
   theme: "dark",
   providerOptions // required
@@ -78,13 +78,13 @@ export const connect = () => {
     });
     const CONFIG = await configResponse.json();
 
-    await axios.get('/.netlify/functions/list')
-        .then(res => {
-          console.log('JSON BIN TEST')
-          console.log(res)
-        }).catch((error) => {
-          alert(error)
-        })
+    // await axios.get('/.netlify/functions/list')
+    //     .then(res => {
+    //       console.log('JSON BIN TEST')
+    //       console.log(res)
+    //     }).catch((error) => {
+    //       alert(error)
+    //     })
 
     try {
       let provider = await web3Modal.connect();

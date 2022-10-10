@@ -1,10 +1,10 @@
 {
-  "CONTRACT_ADDRESS": "0x5397bead2b8670ced73b6c0cdb42f59808c5eec8",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/token/0x5397bead2b8670ced73b6c0cdb42f59808c5eec8",
+  "CONTRACT_ADDRESS": "0x76edad21470E9578F7b98F2aa45f0968cE4Ea135",
+  "SCAN_LINK": "https://goerli.etherscan.io/address/0x76edad21470e9578f7b98f2aa45f0968ce4ea135",
   "NETWORK": {
-    "NAME": "Rinkeby",
+    "NAME": "Georli",
     "SYMBOL": "ETH",
-    "ID": 4
+    "ID": 5
   },
   "NFT_NAME": "Hello, Charlie!",
   "SYMBOL": "HCHR",
