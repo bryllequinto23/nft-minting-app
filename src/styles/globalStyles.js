@@ -122,7 +122,7 @@ export const TextDescription = styled.p`
 `;
 
 export const TextDescription2 = styled.p`
-  color: var(--primary-text);
+  color: whitesmoke;
   font-size: 16px;
   line-height: 1.6;
   cursor: pointer;

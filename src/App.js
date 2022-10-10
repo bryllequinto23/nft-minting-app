@@ -634,7 +634,7 @@ function App() {
                           textAlign: "center",
                           fontSize: 50,
                           fontWeight: "bold",
-                          color: "var(--primary-text)",}}>
+                          color: "whitesmoke",}}>
                           { blockchain.saleState === 0 ? "Minting is not allowed at the moment" : "You are not OG/whitelisted." }
                         </s.TextTitle>
                         <s.SpacerSmall />
