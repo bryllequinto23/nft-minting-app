@@ -602,6 +602,7 @@ function App() {
   }, []);
 
   useEffect(() => {
+    alert('USE EFFECT BLOCKCHAIN ACCOUNT')
     getData();
   }, [blockchain.account]);
 
