@@ -780,15 +780,21 @@ function App() {
                                   e.preventDefault();
                                   mintSubmit();
                                 }}>
-                                  <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                                  <button className="mntbutton"
+                                    disabled={(!captchaSuccess && !claimingNft) || (captchaSuccess && claimingNft) ? 1 : 0}
+                                    type="submit">
+                                    {claimingNft ? "MINTING..." : "MINT"}
+                                  </button>
+                                  {/* <s.Container ai={"center"} jc={"center"} fd={"row"}>
                                     <StyledButton3 disabled={(!captchaSuccess && !claimingNft) || (captchaSuccess && claimingNft) ? 1 : 0}
                                       type="submit">
                                       {claimingNft ? "MINTING..." : "MINT"}
                                     </StyledButton3>
-                                  </s.Container>
+                                  </s.Container> */}
                                   <s.SpacerSmall/>
                                   <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                                    <ReCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY}
+                                    <ReCAPTCHA className='g-recaptcha'
+                                      sitekey={process.env.REACT_APP_SITE_KEY}
                                       ref={captchaRef}
                                       onChange={onChange}/>
                                   </s.Container>
