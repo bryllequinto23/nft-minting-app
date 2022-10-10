@@ -93,7 +93,7 @@ export const connect = () => {
   
       const accounts = await web3.eth.getAccounts();
       alert(accounts)
-      alert(accounts[0])
+      alert(`account 0 ${accounts[0]}`)
       const networkId = await web3.eth.net.getId();
   
       if (networkId == CONFIG.NETWORK.ID) {
