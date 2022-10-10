@@ -730,7 +730,26 @@ function App() {
                                     <s.SpacerSmall />
                                   </>
                                 ) : null }
-                                <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                                <div className='mintConatinerInnermost'>
+                                  <button className="mbtn"
+                                    disabled={claimingNft ? 1 : 0}
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      decrementMintAmount();
+                                    }}>
+                                    -
+                                  </button>
+                                  <p>{mintAmount}</p>
+                                  <button className="abtn"
+                                    disabled={claimingNft ? 1 : 0}
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      incrementMintAmount();
+                                    }}> 
+                                    + 
+                                  </button>
+                                </div>
+                                {/* <s.Container ai={"center"} jc={"center"} fd={"row"}>
                                   <StyledRoundButton2 style={{ lineHeight: 0.4 }}
                                     disabled={claimingNft ? 1 : 0}
                                     onClick={(e) => {
@@ -755,7 +774,7 @@ function App() {
                                     }}>
                                     +
                                   </StyledRoundButton2>
-                                </s.Container>
+                                </s.Container> */}
                                 <s.SpacerSmall />
                                 <form onSubmit={(e) => {
                                   e.preventDefault();
