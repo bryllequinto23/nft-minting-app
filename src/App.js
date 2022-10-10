@@ -775,7 +775,7 @@ function App() {
                                     +
                                   </StyledRoundButton2>
                                 </s.Container> */}
-                                <s.SpacerSmall />
+                                {/* <s.SpacerSmall /> */}
                                 <form onSubmit={(e) => {
                                   e.preventDefault();
                                   mintSubmit();
