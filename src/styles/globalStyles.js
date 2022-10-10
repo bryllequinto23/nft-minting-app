@@ -123,7 +123,7 @@ export const TextDescription = styled.p`
 
 export const TextDescription2 = styled.p`
   color: #fff3e3;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.6;
   cursor: pointer;
 `;
