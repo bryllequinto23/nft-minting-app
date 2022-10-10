@@ -640,10 +640,16 @@ function App() {
                     </>
                   ) : (
                     <>
-                      <input type="hidden" name="hp" value="" ref={inputRef}/>
-                      <StyledButton4 type="submit">
-                        CONNECT
-                      </StyledButton4>
+                      <form onSubmit={(e) => {
+                        e.preventDefault();
+                        submitForm();
+                      }}>
+                        <input type="hidden" name="hp" value="" ref={inputRef}/>
+                        <button className="mntbutton" type="submit">
+                          CONNECT
+                        </button>
+                      </form>
+                      
                     </>
                     
                   )
