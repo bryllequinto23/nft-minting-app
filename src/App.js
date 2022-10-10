@@ -545,6 +545,7 @@ function App() {
 
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
+      alert('connected')
       setConnected(true);
       dispatch(fetchData(blockchain.account));
       if (blockchain.saleState === 1 || blockchain.saleState === 2) {
@@ -556,6 +557,7 @@ function App() {
       tempAcc = tempAcc.substr(0,6) + '...' + tempAcc.substr(tempAcc.length - 4, tempAcc.length);
       setWalletDisplay(tempAcc);
     } else {
+      alert('not connected')
       setConnected(false);
     }
   };
