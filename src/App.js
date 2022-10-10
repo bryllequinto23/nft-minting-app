@@ -691,7 +691,7 @@ function App() {
                               textAlign: "center",
                               fontSize: 50,
                               fontWeight: "bold",
-                              color: "var(--primary-text)",}}>
+                              color: "#fff3e3",}}>
                               {data.totalSupply} / {CONFIG.MAX_SUPPLY}
                             </s.TextTitle>
                             <s.SpacerSmall/>
@@ -710,7 +710,7 @@ function App() {
                               </>
                             ) : (
                               <>
-                                <s.TextTitle style={{ textAlign: "center", color: "var(--primary-text)" }}>
+                                <s.TextTitle style={{ textAlign: "center", color: "#fff3e3" }}>
                                   1 Charlie = { blockchain.saleState === 3 ? CONFIG.DISPLAY_COST : (blockchain.saleState === 1 ? CONFIG.DISPLAY_COST_OG : CONFIG.DISPLAY_COST_WL)}{" "}
                                   {CONFIG.NETWORK.SYMBOL}.
                                 </s.TextTitle>
@@ -719,7 +719,7 @@ function App() {
                                   <>
                                     <s.TextDescription style={{
                                     textAlign: "center",
-                                    color: isErrorMsg === 1 ? "var(--err-text)" : "var(--primary-text)",
+                                    color: isErrorMsg === 1 ? "var(--err-text)" : "#fff3e3",
                                     fontWeight: "bold"}}>
                                     {feedback}
                                     </s.TextDescription>
@@ -738,7 +738,7 @@ function App() {
                                   <s.SpacerMedium />
                                   <s.TextDescription style={{
                                     textAlign: "center",
-                                    color: "var(--primary-text)",
+                                    color: "#fff3e3",
                                     fontWeight: "bold",
                                     fontSize: "35px"}}>
                                     {mintAmount}
