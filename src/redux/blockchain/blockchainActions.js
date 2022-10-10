@@ -92,8 +92,6 @@ export const connect = () => {
       let web3 = new Web3(provider);
   
       const accounts = await web3.eth.getAccounts();
-      alert(accounts)
-      alert(`account 0 ${accounts[0]}`)
       const networkId = await web3.eth.net.getId();
   
       if (networkId == CONFIG.NETWORK.ID) {
@@ -121,7 +119,6 @@ export const connect = () => {
         );
         // Add listeners start
         provider.on("accountsChanged", (accounts) => {
-          alert('accounts changed')
           dispatch(updateAccount(accounts[0]));
         });
         provider.on("chainChanged", () => {
