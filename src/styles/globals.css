@@ -64,6 +64,8 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 30px;
+  position: relative;
+  z-index: 1;
 }
 
 .mintContainer h2 {
