@@ -544,6 +544,7 @@ function App() {
   };
 
   const getData = () => {
+    alert('GET DATA')
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       alert('connected')
       setConnected(true);
