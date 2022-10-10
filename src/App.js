@@ -659,32 +659,135 @@ function App() {
                       <button   className="mntbutton" default>SOLD OUT!!!</button>    */}
                     </>
                   ) : (
-                    <>
-                      <form onSubmit={(e) => {
-                        e.preventDefault();
-                        submitForm();
-                      }}>
-                        <input type="hidden" name="hp" value="" ref={inputRef}/>
-                        <button className="mntbutton" type="submit">
-                          CONNECT WALLET
-                        </button>
-                      </form>
-                      { blockchain.errorMsg !== "" ? (
-                        <>
-                          <s.SpacerSmall />
-                          <s.TextDescription style={{
-                            textAlign: "center",
-                            color: "var(--err-text)",
-                            fontWeight: "bold"}}>
-                            {blockchain.errorMsg}
-                          </s.TextDescription>
-                        </>
-                      ) : null }
-                    </>
-                    
+                    <s.Container3 flex={2}>
+                      <s.Container flex={2} jc={"center"} ai={"center"}>
+                        { !isConnected ? (
+                          <s.Container ai={"center"} jc={"center"}>
+                            <s.SpacerSmall/>
+                            <form onSubmit={(e) => {
+                                e.preventDefault();
+                                submitForm();
+                              }}>
+                              <input type="hidden" name="hp" value="" ref={inputRef}/>
+                              <button className="mntbutton" type="submit">
+                                CONNECT WALLET
+                              </button>
+                            </form>
+                            { blockchain.errorMsg !== "" ? (
+                              <>
+                                <s.SpacerSmall />
+                                <s.TextDescription style={{
+                                  textAlign: "center",
+                                  color: "var(--err-text)",
+                                  fontWeight: "bold"}}>
+                                  {blockchain.errorMsg}
+                                </s.TextDescription>
+                              </>
+                            ) : null }
+                          </s.Container>
+                        ) : (
+                          <>
+                            <s.TextTitle style={{
+                              textAlign: "center",
+                              fontSize: 50,
+                              fontWeight: "bold",
+                              color: "var(--primary-text)",}}>
+                              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+                            </s.TextTitle>
+                            <s.SpacerSmall/>
+                            { Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+                              <>
+                                <s.TextTitle style={{ textAlign: "center", color: "var(--accent-text)" }}>
+                                  The sale has ended.
+                                </s.TextTitle>
+                                <s.TextDescription style={{ textAlign: "center", color: "var(--accent-text)" }}>
+                                  You can still find {CONFIG.NFT_NAME} on
+                                </s.TextDescription>
+                                <s.SpacerSmall />
+                                <StyledLink target={"_blank"} href={CONFIG.MARKETPLACE_LINK}>
+                                  {CONFIG.MARKETPLACE}
+                                </StyledLink>
+                              </>
+                            ) : (
+                              <>
+                                <s.TextTitle style={{ textAlign: "center", color: "var(--primary-text)" }}>
+                                  1 Charlie = { blockchain.saleState === 3 ? CONFIG.DISPLAY_COST : (blockchain.saleState === 1 ? CONFIG.DISPLAY_COST_OG : CONFIG.DISPLAY_COST_WL)}{" "}
+                                  {CONFIG.NETWORK.SYMBOL}.
+                                </s.TextTitle>
+                                <s.SpacerSmall />
+                                { feedback !== "" ? (
+                                  <>
+                                    <s.TextDescription style={{
+                                    textAlign: "center",
+                                    color: isErrorMsg === 1 ? "var(--err-text)" : "var(--primary-text)",
+                                    fontWeight: "bold"}}>
+                                    {feedback}
+                                    </s.TextDescription>
+                                    <s.SpacerSmall />
+                                  </>
+                                ) : null }
+                                <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                                  <StyledRoundButton2 style={{ lineHeight: 0.4 }}
+                                    disabled={claimingNft ? 1 : 0}
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      decrementMintAmount();
+                                    }}>
+                                    -
+                                  </StyledRoundButton2>
+                                  <s.SpacerMedium />
+                                  <s.TextDescription style={{
+                                    textAlign: "center",
+                                    color: "var(--primary-text)",
+                                    fontWeight: "bold",
+                                    fontSize: "35px"}}>
+                                    {mintAmount}
+                                  </s.TextDescription>
+                                  <s.SpacerMedium />
+                                  <StyledRoundButton2 disabled={claimingNft ? 1 : 0}
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      incrementMintAmount();
+                                    }}>
+                                    +
+                                  </StyledRoundButton2>
+                                </s.Container>
+                                <s.SpacerSmall />
+                                <form onSubmit={(e) => {
+                                  e.preventDefault();
+                                  mintSubmit();
+                                }}>
+                                  <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                                    <StyledButton3 disabled={(!captchaSuccess && !claimingNft) || (captchaSuccess && claimingNft) ? 1 : 0}
+                                      type="submit">
+                                      {claimingNft ? "MINTING..." : "MINT"}
+                                    </StyledButton3>
+                                  </s.Container>
+                                  <s.SpacerSmall/>
+                                  <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                                    <ReCAPTCHA sitekey={process.env.REACT_APP_SITE_KEY}
+                                      ref={captchaRef}
+                                      onChange={onChange}/>
+                                  </s.Container>
+                                  <input type="hidden" name="hp-2" value="" ref={mintRef}/>
+                                </form>
+                              </>
+                            )}
+                            <s.SpacerSmall />
+                            <s.TextDescription2>
+                              {walletDisplay}
+                            </s.TextDescription2>
+                            <s.TextDescription2 onClick={(e) => {
+                              e.preventDefault();
+                              disconnect();}}>
+                              DISCONNECT
+                            </s.TextDescription2>
+                          </>
+                        )}
+                      </s.Container>
+                    </s.Container3>
                   )
                 }
-                
               </div>
             </div> 
           </div>
