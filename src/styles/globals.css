@@ -136,7 +136,7 @@ margin-right: 1.5rem;
 .mntbutton{
   position: relative;
   z-index: 1;
-  width: 18rem;
+  width: 19rem;
   padding: 15px 40px;
   border-radius: 20px;
   background-image: url("../images/Cement.png");
@@ -442,8 +442,8 @@ margin-right: 1.5rem;
   }
   .g-recaptcha {
    
-  transform:scale(0.70);
-    -webkit-transform:scale(0.70);
+  transform:scale(0.77);
+    -webkit-transform:scale(0.77);
     transform-origin:0 0;
     -webkit-transform-origin:50% 20%;
 }
