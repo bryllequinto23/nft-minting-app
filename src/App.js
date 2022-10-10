@@ -8,6 +8,7 @@ import keccak256 from "keccak256";
 import MerkleTree from "merkletreejs";
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
+import AstroCharlie from './images/AstroCharlie.png'
 
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
@@ -619,7 +620,7 @@ function App() {
         </ul>
         <div className="mainbg">
           <div className='imgHandler'> 
-            {/* <Image src={AstroCharlie} className='imgCharlie' alt="AstroCharlie"/> */}
+            <img src={AstroCharlie} className='imgCharlie' alt="AstroCharlie"/>
           </div>
 
           <div className='mintHandler'>
