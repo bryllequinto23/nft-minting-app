@@ -739,7 +739,7 @@ function App() {
                                     }}>
                                     -
                                   </button>
-                                  <p>{mintAmount}</p>
+                                  <p className="mintQuant">{mintAmount}</p>
                                   <button className="abtn"
                                     disabled={claimingNft ? 1 : 0}
                                     onClick={(e) => {
