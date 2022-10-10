@@ -602,7 +602,20 @@ function App() {
 
 
   return (
+    
     <s.Screen2>
+      <ul className="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
       <s.Container2 flex={2} image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg6.png" : null}>
       </s.Container2>
       {process.env.REACT_APP_API_KEY}
