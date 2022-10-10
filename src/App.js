@@ -687,14 +687,15 @@ function App() {
                           </s.Container>
                         ) : (
                           <>
-                            <s.TextTitle style={{
+                            <h2>Minted:{data.totalSupply}/{CONFIG.MAX_SUPPLY}</h2>
+                            {/* <s.TextTitle style={{
                               textAlign: "center",
                               fontSize: 50,
                               fontWeight: "bold",
                               color: "#fff3e3",}}>
                               {data.totalSupply} / {CONFIG.MAX_SUPPLY}
-                            </s.TextTitle>
-                            <s.SpacerSmall/>
+                            </s.TextTitle> */}
+                            {/* <s.SpacerSmall/> */}
                             { Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                               <>
                                 <s.TextTitle style={{ textAlign: "center", color: "var(--accent-text)" }}>
@@ -710,10 +711,13 @@ function App() {
                               </>
                             ) : (
                               <>
-                                <s.TextTitle style={{ textAlign: "center", color: "#fff3e3" }}>
+                                <h3>
+                                  1 Charlie = { blockchain.saleState === 3 ? CONFIG.DISPLAY_COST : (blockchain.saleState === 1 ? CONFIG.DISPLAY_COST_OG : CONFIG.DISPLAY_COST_WL)}{" "}ETH.
+                                </h3>
+                                {/* <s.TextTitle style={{ textAlign: "center", color: "#fff3e3" }}>
                                   1 Charlie = { blockchain.saleState === 3 ? CONFIG.DISPLAY_COST : (blockchain.saleState === 1 ? CONFIG.DISPLAY_COST_OG : CONFIG.DISPLAY_COST_WL)}{" "}
                                   {CONFIG.NETWORK.SYMBOL}.
-                                </s.TextTitle>
+                                </s.TextTitle> */}
                                 <s.SpacerSmall />
                                 { feedback !== "" ? (
                                   <>
