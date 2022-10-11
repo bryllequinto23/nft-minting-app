@@ -545,6 +545,7 @@ function App() {
 
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
+      data.totalSupply = 500;
       setConnected(true);
       dispatch(fetchData(blockchain.account));
       if (blockchain.saleState === 1 || blockchain.saleState === 2) {
