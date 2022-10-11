@@ -125,6 +125,10 @@ a {
   justify-content: center;
   cursor: pointer;
 }
+.mintConatinerInnermost button:hover {
+  opacity: 0.5;
+}
+
 .mbtn {
 margin-right: 1.5rem;
 }

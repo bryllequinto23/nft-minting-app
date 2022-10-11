@@ -128,6 +128,17 @@ export const TextDescription2 = styled.p`
   cursor: pointer;
 `;
 
+export const TextDescription3 = styled.p`
+  color: #fff3e3;
+  font-size: 18px;
+  line-height: 1.6;
+  cursor: pointer;
+
+  :hover {
+    opacity: 0.5;
+  }
+`;
+
 export const StyledClickable = styled.div`
   :active {
     opacity: 0.6;
