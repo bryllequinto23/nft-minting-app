@@ -162,9 +162,16 @@ margin-right: 1.5rem;
 
 }
 
+.mntbutton:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 .mntbutton:hover {
   opacity: 0.5;
 }
+
 .g-recaptcha {
     margin-top: 0.5rem;
   /* transform:scale(0.77);

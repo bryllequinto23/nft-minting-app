@@ -641,11 +641,11 @@ function App() {
                         <s.TextDescription2>
                           {walletDisplay}
                         </s.TextDescription2>
-                        <s.TextDescription2 onClick={(e) => {
+                        <s.TextDescription3 onClick={(e) => {
                           e.preventDefault();
                           disconnect();}}>
                           DISCONNECT
-                        </s.TextDescription2>
+                        </s.TextDescription3>
                       </s.Container>
                     </s.Container3>
                       {/* <h2>Minted:5001/5001</h2>
@@ -810,11 +810,11 @@ function App() {
                             <s.TextDescription2>
                               {walletDisplay}
                             </s.TextDescription2>
-                            <s.TextDescription2 onClick={(e) => {
+                            <s.TextDescription3 onClick={(e) => {
                               e.preventDefault();
                               disconnect();}}>
                               DISCONNECT
-                            </s.TextDescription2>
+                            </s.TextDescription3>
                           </>
                         )}
                       </s.Container>
