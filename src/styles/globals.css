@@ -487,6 +487,7 @@ margin-right: 1.5rem;
   }
   .mntbutton{
    width: 15rem;
+   margin-left: 2rem;
    }
 
 }
@@ -513,7 +514,7 @@ margin-right: 1.5rem;
     padding: 10px 1px;
     margin-top: 0;
     margin-bottom: 1rem;
-    
+    margin-left: 2rem;
    }
 
 }

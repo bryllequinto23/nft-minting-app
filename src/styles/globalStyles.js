@@ -33,7 +33,7 @@ export const SpacerXSmall = styled.div`
 
 // Used for providing space between components
 export const SpacerSmall = styled.div`
-  height: 16px;
+  height: 10px;
   width: 16px;
 `;
 
