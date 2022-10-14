@@ -7,7 +7,6 @@ import Web3Modal from "web3modal"
 // log
 import { fetchData } from "../data/dataActions";
 import axios from "axios";
-import { providers } from "@web3modal/ethereum";
 
 const connectRequest = () => {
   return {
