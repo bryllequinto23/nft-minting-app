@@ -1,30 +1,6 @@
 [
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_quantity",
-				"type": "uint256"
-			}
-		],
-		"name": "ownerMint",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_baseTokenUri",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_placeholderTokenUri",
-				"type": "string"
-			}
-		],
+		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
 	},
@@ -70,6 +46,19 @@
 		"inputs": [],
 		"name": "BalanceQueryForZeroAddress",
 		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_quantity",
+				"type": "uint256"
+			}
+		],
+		"name": "foundersMint",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -308,19 +297,6 @@
 				"type": "uint256"
 			}
 		],
-		"name": "setMaxMintPub",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_maxMint",
-				"type": "uint256"
-			}
-		],
 		"name": "setMaxMintWL",
 		"outputs": [],
 		"stateMutability": "nonpayable",
@@ -350,22 +326,14 @@
 				"internalType": "bytes32",
 				"name": "_merkleRootOG",
 				"type": "bytes32"
-			}
-		],
-		"name": "setMerkleRoot",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
+			},
 			{
 				"internalType": "bytes32",
-				"name": "_merkleRootPub",
+				"name": "_merkleRootWA",
 				"type": "bytes32"
 			}
 		],
-		"name": "setMerkleRootPub",
+		"name": "setMerkleRoot",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -378,7 +346,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "setOGPrice",
+		"name": "setMintPrice",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -392,19 +360,6 @@
 			}
 		],
 		"name": "setPlaceHolderUri",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_newPx",
-				"type": "uint256"
-			}
-		],
-		"name": "setPubPrice",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -431,19 +386,6 @@
 			}
 		],
 		"name": "setTokenUri",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_newPx",
-				"type": "uint256"
-			}
-		],
-		"name": "setWLPrice",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -514,6 +456,24 @@
 		"name": "transferOwnership",
 		"outputs": [],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32[]",
+				"name": "_merkleProof",
+				"type": "bytes32[]"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_quantity",
+				"type": "uint256"
+			}
+		],
+		"name": "waitlistMint",
+		"outputs": [],
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -631,33 +591,20 @@
 	},
 	{
 		"inputs": [],
+		"name": "MAX_FOUNDER_MINT",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "MAX_OG_MINT",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "MAX_OWNER_MINT",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "MAX_PUBLIC_MINT",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -696,6 +643,19 @@
 	},
 	{
 		"inputs": [],
+		"name": "MINT_PRICE",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "name",
 		"outputs": [
 			{
@@ -709,38 +669,12 @@
 	},
 	{
 		"inputs": [],
-		"name": "OG_SALE_PRICE",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "owner",
 		"outputs": [
 			{
 				"internalType": "address",
 				"name": "",
 				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "OWNER_SALE_PRICE",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -773,19 +707,6 @@
 				"internalType": "string",
 				"name": "",
 				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "PUBLIC_SALE_PRICE",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -850,45 +771,26 @@
 				"type": "address"
 			}
 		],
+		"name": "totalFounderMint",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
 		"name": "totalOGMint",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "totalOwnerMint",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "totalPublicMint",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -920,7 +822,7 @@
 				"type": "address"
 			}
 		],
-		"name": "totalWhitelistMint",
+		"name": "totalWaitlistMint",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -932,8 +834,14 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "WHITELIST_SALE_PRICE",
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "totalWhitelistMint",
 		"outputs": [
 			{
 				"internalType": "uint256",

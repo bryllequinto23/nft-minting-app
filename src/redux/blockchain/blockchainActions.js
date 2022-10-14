@@ -78,17 +78,21 @@ export const connect = () => {
     });
     const CONFIG = await configResponse.json();
 
-    // await axios.get('/.netlify/functions/list')
-    //     .then(res => {
-    //       console.log('JSON BIN TEST')
-    //       console.log(res)
-    //     }).catch((error) => {
-    //       alert(error)
-    //     })
+    let wl;
+    let og;
+    let wa;
+
+    await axios.get('./api/getList.php')
+        .then(res => {
+          wl = res.data.WL;
+          og = res.data.OG;
+          wa = res.data.WA;
+        }).catch((error) => {
+          alert(error)
+        })
 
     try {
       let provider = await web3Modal.connect();
-      // let web3Test = new ethers.providers.Web3Provider(provider);
       let web3 = new Web3(provider);
   
       const accounts = await web3.eth.getAccounts();
@@ -100,11 +104,7 @@ export const connect = () => {
           CONFIG.CONTRACT_ADDRESS
         );
 
-
         const saleState = await SmartContractObj.methods.currState().call(); // get sale state
-        // const isPaused = await SmartContractObj.methods.pause().call(); // paused?
-        // const isWLSale = await SmartContractObj.methods.whiteListSale().call(); // whitelist sale?
-        // const isPSale = await SmartContractObj.methods.publicSale().call(); // public sale?
 
         dispatch(
           connectSuccess({
@@ -112,9 +112,9 @@ export const connect = () => {
             smartContract: SmartContractObj,
             web3: web3,
             saleState: +(saleState),
-            paused: false,
-            wlSale: false,
-            pSale: false
+            wl: wl,
+            og: og,
+            wa: wa
           })
         );
         // Add listeners start
@@ -132,50 +132,6 @@ export const connect = () => {
       console.log(e)
       dispatch(connectFailed("Something went wrong."));
     }
-    
-
-
-    // const { ethereum } = window;
-    // const metamaskIsInstalled = ethereum && ethereum.isMetaMask;
-    // if (metamaskIsInstalled) {
-    //   Web3EthContract.setProvider(ethereum);
-    //   let web3 = new Web3(ethereum);
-    //   try {
-    //     const accounts = await ethereum.request({
-    //       method: "eth_requestAccounts",
-    //     });
-    //     const networkId = await ethereum.request({
-    //       method: "net_version",
-    //     });
-    //     if (networkId == CONFIG.NETWORK.ID) {
-    //       const SmartContractObj = new Web3EthContract(
-    //         abi,
-    //         CONFIG.CONTRACT_ADDRESS
-    //       );
-    //       dispatch(
-    //         connectSuccess({
-    //           account: accounts[0],
-    //           smartContract: SmartContractObj,
-    //           web3: web3,
-    //         })
-    //       );
-    //       // Add listeners start
-    //       ethereum.on("accountsChanged", (accounts) => {
-    //         dispatch(updateAccount(accounts[0]));
-    //       });
-    //       ethereum.on("chainChanged", () => {
-    //         window.location.reload();
-    //       });
-    //       // Add listeners end
-    //     } else {
-    //       dispatch(connectFailed(`Change network to ${CONFIG.NETWORK.NAME}.`));
-    //     }
-    //   } catch (err) {
-    //     dispatch(connectFailed("Something went wrong."));
-    //   }
-    // } else {
-    //   dispatch(connectFailed("Install Metamask."));
-    // }
   };
 };
 

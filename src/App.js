@@ -13,57 +13,6 @@ import AstroCharlie from './images/AstroCharlie.png'
 const truncate = (input, len) =>
   input.length > len ? `${input.substring(0, len)}...` : input;
 
-// export const StyledInput = styled.input`
-//   type: hidden;
-// `
-export const StyledButton = styled.button`
-  padding: 10px;
-  border-radius: 50px;
-  border: none;
-  background-color: var(--secondary);
-  padding: 10px;
-  font-weight: bold;
-  color: var(--secondary-text);
-  width: 100px;
-  cursor: pointer;
-  box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-  -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-  -moz-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
-  :active {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-  }
-`;
-
-export const StyledButton2 = styled.button`
-  padding: 15px 30px;
-  border-radius: 10px;
-  border: none;
-  background-color: var(--secondary);
-  font-weight: bold;
-  color: var(--accent-text);
-  width: 40%;
-  font-size: 30px;
-  cursor: pointer;
-
-  :active {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-  }
-
-  :disabled {
-    pointer-events: none;
-    opacity: 0.5;
-  }
-
-  @media (max-width: 767px) {
-    width: 60%;
-    font-size: 35px;
-  }
-`;
-
 export const StyledButton3 = styled.button`
   all: unset;
   padding: 15px 30px;
@@ -93,61 +42,6 @@ export const StyledButton3 = styled.button`
   }
 `;
 
-export const StyledButton4 = styled.button`
-  all: unset;
-  padding: 15px 30px;
-  border-radius: 10px;
-  border: none;
-  background-color: var(--secondary);
-  font-weight: bold;
-  color: var(--accent-text);
-  width: 100%;
-  font-size: 30px;
-  cursor: pointer;
-  text-align: center;
-
-  :active {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-  }
-
-  :disabled {
-    pointer-events: none;
-    opacity: 0.5;
-  }
-
-  @media (max-width: 767px) {
-    width: 60%;
-    font-size: 35px;
-  }
-`;
-
-export const StyledRoundButton = styled.button`
-  padding: 10px;
-  border-radius: 100%;
-  border: none;
-  background-color: var(--primary);
-  padding: 10px;
-  font-weight: bold;
-  font-size: 15px;
-  color: var(--primary-text);
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  -webkit-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  -moz-box-shadow: 0px 4px 0px -2px rgba(250, 250, 250, 0.3);
-  :active {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-  }
-`;
-
 export const StyledRoundButton2 = styled.button`
   border-radius: 100%;
   border: 1px solid;
@@ -168,55 +62,16 @@ export const StyledRoundButton2 = styled.button`
   }
 `;
 
-export const ResponsiveWrapper = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  justify-content: stretched;
-  align-items: stretched;
-  width: 100%;
-  @media (max-width: 767px) {
-    flex-direction: column-reverse;
-  }
-`;
-
-export const StyledLogo = styled.img`
-  width: 200px;
-  @media (min-width: 767px) {
-    width: 300px;
-  }
-  transition: width 0.5s;
-  transition: height 0.5s;
-`;
-
-export const StyledImg = styled.img`
-  box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
-  border: 4px dashed var(--secondary);
-  background-color: var(--accent);
-  border-radius: 100%;
-  width: 200px;
-  @media (min-width: 900px) {
-    width: 250px;
-  }
-  @media (min-width: 1000px) {
-    width: 300px;
-  }
-  transition: width 0.5s;
-`;
-
-export const StyledLink = styled.a`
-  color: var(--accent-text);
-  text-decoration: none;
-`;
-
 function App() {
- //asdnajsdjabsjdbsdjhb
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const captchaRef = useRef(null);
   const inputRef = useRef(null);
   const mintRef = useRef(null);
+  const wl = [];
+  const og = [];
+  const wa = [];
   const [captchaSuccess, setCaptchaSuccess] = useState(false);
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(``);
@@ -225,6 +80,7 @@ function App() {
   const [isConnected, setConnected] = useState(false);
   const [isEligible, setEligibile] = useState(false);
   const [walletDisplay, setWalletDisplay] = useState('');
+  const [initErrMsg, setInitMessage] = useState('');
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
@@ -238,19 +94,12 @@ function App() {
     MAX_SUPPLY: 1,
     MAX_MINT_WL: 0,
     MAX_MINT_OG: 0,
-    MAX_MINT_PUB: 0,
     WEI_COST: 0,
-    WEI_COST_WL: 0,
-    WEI_COST_OG: 0,
     DISPLAY_COST: 0,
-    DISPLAY_COST_WL: 0,
-    DISPLAY_COST_OG: 0,
     GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
-    SHOW_BACKGROUND: false,
-    WL: [],
-    OG: []
+    SHOW_BACKGROUND: false
   });
 
   const submitForm = () => {
@@ -263,17 +112,12 @@ function App() {
   }
 
   const onChange = async(value) => {
-    const buf2hex = x => '0x' + x.toString('hex')
-    console.log(blockchain.account)
-    console.log(keccak256(blockchain.account))
-    console.log(keccak256(blockchain.account).toString('hex'))
-    console.log(Buffer.from(keccak256(blockchain.account).toString('hex'), 'hex'))
     const token = value;
 
     if (token !== '' && mintRef.current.value === '') {
-      await axios.post('/.netlify/functions/helloWorld', {token})
+      await axios.post('./api/validateCaptcha.php', {token})
         .then(res => {
-          if (res.data.successful) {
+          if (res.data) {
             setCaptchaSuccess(true);
           }
         }).catch((error) => {
@@ -296,19 +140,26 @@ function App() {
   }
 
   const claimNFTs = () => {
-    const l = CONFIG.OG.map(x => keccak256(x));
-    const tree = new MerkleTree(l, keccak256, { sortPairs: true });
-    const buf2hex = x => '0x' + x.toString('hex')
+    // const l = blockchain.og.map(x => keccak256(x));
+    // const tree = new MerkleTree(l, keccak256, { sortPairs: true });
+    // const buf2hex = x => '0x' + x.toString('hex')
 
-    console.log('OG')
-    console.log(buf2hex(tree.getRoot()))
+    // console.log('OG')
+    // console.log(buf2hex(tree.getRoot()))
 
-    const l2 = CONFIG.WL.map(x => keccak256(x));
-    const tree2 = new MerkleTree(l2, keccak256, { sortPairs: true });
-    const buf2hex2 = x => '0x' + x.toString('hex')
+    // const l2 = blockchain.wl.map(x => keccak256(x));
+    // const tree2 = new MerkleTree(l2, keccak256, { sortPairs: true });
+    // const buf2hex2 = x => '0x' + x.toString('hex')
 
-    console.log('WL')
-    console.log(buf2hex2(tree2.getRoot()))
+    // console.log('WL')
+    // console.log(buf2hex2(tree2.getRoot()))
+
+    // const l4 = blockchain.wa.map(x => keccak256(x));
+    // const tree4 = new MerkleTree(l4, keccak256, { sortPairs: true });
+    // const buf2hex4 = x => '0x' + x.toString('hex')
+
+    // console.log('WA')
+    // console.log(buf2hex4(tree4.getRoot()))
     setErrorMsg(0);
     checkStatus();
   };
@@ -321,9 +172,9 @@ function App() {
       if (+(state) === 0) {
         alert("Minting is paused");
         resetCaptcha();
-      } else if (+(state) === 1 || +(state) === 2) {
+      } else if (+(state) === 1 || +(state) === 2 || +(state) === 3) {
         verifyWLSale();
-      } else if (+(state) === 3) {
+      } else if (+(state) === 4) {
         verifyPSale();
       }
     });
@@ -333,6 +184,7 @@ function App() {
     const totSupply = +(data.totalSupply);
     const ogTotal = +(data.ogTotal);
     const wlTotal = +(data.wlTotal);
+    const waTotal = +(data.waTotal);
     const maxOG = CONFIG.MAX_MINT_OG;
     const maxWl = CONFIG.MAX_MINT_WL;
     const maxSupply = CONFIG.MAX_SUPPLY;
@@ -340,29 +192,40 @@ function App() {
     const newSupply = totSupply + mintAmount;
     const newOGTotal = ogTotal + mintAmount;
     const newWlTotal = wlTotal + mintAmount;
+    const newWaTotal = waTotal + mintAmount;
 
     if (newSupply > maxSupply) {
       alert("Beyond max supply.")
       resetCaptcha();
-    } else if ((blockchain.saleState === 1 && (newOGTotal > maxOG)) || (blockchain.saleState === 2 && (newWlTotal > maxWl)))  {
+    } else if ((blockchain.saleState === 1 && (newOGTotal > maxOG)) || ((blockchain.saleState === 2) && (newWlTotal > maxWl))
+      || (blockchain.saleState === 3 && (newWaTotal > maxWl)))  {
       alert("You have reached the maximum amount of mints.")
       resetCaptcha();
     } else {
       checkEligibility();
       
       if (!isEligible) {
-        alert("You are not og/whitelisted.")
+        if (blockchain.saleState === 1) {
+          alert("You are not a Charlie's Angel.")
+        } else if (blockchain.saleState === 2) {
+          alert("You are not Charlisted/Allowlisted.")
+        } else if (blockchain.saleState === 3) {
+          alert("You are not waitlisted.")
+        }
         resetCaptcha();
       } else {
         setFeedback(`Minting your Charlie...`);
         setClaimingNft(true);
 
-        if (blockchain.saleState === 1 === 1) {
+        if (blockchain.saleState === 1) {
           console.log('OG MINT')
           ogMint();
-        } else {
+        } else if (blockchain.saleState === 2) {
           console.log('WL MINT')
           whitelistMint();
+        } else if (blockchain.saleState === 3) {
+          console.log('WA MINT')
+          waitlistMint();
         }
       }
     }
@@ -371,7 +234,6 @@ function App() {
   const verifyPSale = () => {
     const totSupply = +(data.totalSupply);
     const pubTotal = +(data.pubTotal);
-    const maxPub = CONFIG.MAX_MINT_PUB;
     const maxSupply = CONFIG.MAX_SUPPLY;
 
     const newSupply = totSupply + mintAmount;
@@ -379,9 +241,6 @@ function App() {
 
     if (newSupply > maxSupply) {
       alert("Beyond max supply.")
-      resetCaptcha();
-    } else if (newPubTotal > maxPub) {
-      alert("You have reached the maximum amount of mints.")
       resetCaptcha();
     } else {
       setFeedback(`Minting your Charlie...`);
@@ -391,16 +250,14 @@ function App() {
   }
 
   const ogMint = () => {
-    let cost = CONFIG.WEI_COST_OG;
+    let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
     let totalGasLimit = String(gasLimit * mintAmount);
 
-    const l = CONFIG.OG.map(x => keccak256(x));
+    const l = og[0].map(x => keccak256(x));
     const tree = new MerkleTree(l, keccak256, { sortPairs: true });
     const buf2hex = x => '0x' + x.toString('hex')
-
-    console.log(buf2hex(tree.getRoot()))
 
     const leaf = keccak256(blockchain.account);
     const proof = tree.getProof(leaf).map(x => buf2hex(x.data));
@@ -435,18 +292,14 @@ function App() {
   }
 
   const whitelistMint = () => {
-    let cost = CONFIG.WEI_COST_WL;
+    let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
     let totalGasLimit = String(gasLimit * mintAmount);
 
-    //console.log()
-
-    const l = CONFIG.WL.map(x => keccak256(x));
+    const l = wl[0].map(x => keccak256(x));
     const tree = new MerkleTree(l, keccak256, { sortPairs: true });
     const buf2hex = x => '0x' + x.toString('hex')
-
-    console.log(buf2hex(tree.getRoot()))
 
     const leaf = keccak256(blockchain.account);
     const proof = tree.getProof(leaf).map(x => buf2hex(x.data));
@@ -480,8 +333,50 @@ function App() {
       });
   };
 
+  const waitlistMint = () => {
+    let cost = CONFIG.WEI_COST;
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalCostWei = String(cost * mintAmount);
+    let totalGasLimit = String(gasLimit * mintAmount);
+
+    const l = wa[0].map(x => keccak256(x));
+    const tree = new MerkleTree(l, keccak256, { sortPairs: true });
+    const buf2hex = x => '0x' + x.toString('hex')
+
+    const leaf = keccak256(blockchain.account);
+    const proof = tree.getProof(leaf).map(x => buf2hex(x.data));
+
+    blockchain.smartContract.methods
+      .waitlistMint(proof, mintAmount)
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+        value: totalCostWei,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setErrorMsg(1);
+        setFeedback("Sorry, something went wrong please try again later.");
+        setClaimingNft(false);
+        resetCaptcha();
+        setTimeout(() => setFeedback(``), 4000);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setErrorMsg(0);
+        setFeedback(
+          `Your Charlie has been minted. Visit Opensea.io to view it.`
+        );
+        setClaimingNft(false);
+        dispatch(fetchData(blockchain.account));
+        resetCaptcha();
+        setTimeout(() => setFeedback(``), 4000);
+      });
+  };
+
   const publicMint = () => {
-    let cost = CONFIG.WEI_COST; // 1 ETH OR MATIC = 1000000000000000000 WEI
+    let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
     let totalGasLimit = String(gasLimit * mintAmount);
@@ -534,7 +429,7 @@ function App() {
       newMintAmount = mintAmount;
     } else if (blockchain.saleState === 2 && (mintAmount === CONFIG.MAX_MINT_WL)) {
       newMintAmount = mintAmount;
-    } else if (blockchain.saleState === 3 && (mintAmount === CONFIG.MAX_MINT_PUB)) {
+    } else if (blockchain.saleState === 3 && (mintAmount === CONFIG.MAX_MINT_WL)) {
       newMintAmount = mintAmount;
     } else {
       newMintAmount = mintAmount + 1;
@@ -546,8 +441,12 @@ function App() {
   const getData = () => {
     if (blockchain.account !== "" && blockchain.smartContract !== null) {
       setConnected(true);
+      wl.push(blockchain.wl)
+      og.push(blockchain.og)
+      wa.push(blockchain.wa)
       dispatch(fetchData(blockchain.account));
-      if (blockchain.saleState === 1 || blockchain.saleState === 2) {
+
+      if (blockchain.saleState === 1 || blockchain.saleState === 2 || blockchain.saleState === 3) {
         checkEligibility();
       }
 
@@ -561,13 +460,21 @@ function App() {
   };
 
   const checkEligibility = () => {
-    console.log(blockchain.account)
-    const isWl = CONFIG.WL.map(elem => elem.toLowerCase()).includes(blockchain.account.toLowerCase());
-    const isOG = CONFIG.OG.map(elem => elem.toLowerCase()).includes(blockchain.account.toLowerCase());
+    const isWl = wl[0].map(elem => elem.toLowerCase()).includes(blockchain.account.toLowerCase());
+    const isOG = og[0].map(elem => elem.toLowerCase()).includes(blockchain.account.toLowerCase());
+    const isWA = wa[0].map(elem => elem.toLowerCase()).includes(blockchain.account.toLowerCase());
 
-    if ((blockchain.saleState === 1 && isOG) || (blockchain.saleState === 2 && isWl)) {
+    if ((blockchain.saleState === 1 && isOG) || (blockchain.saleState === 2 && isWl)
+      || (blockchain.saleState === 3 && isWA)) {
       setEligibile(true);
     } else {
+      if (blockchain.saleState === 1) {
+        setInitMessage("You are not a Charlie's Angel!")
+      } else if (blockchain.saleState === 2) {
+        setInitMessage("You are not Charlisted/Allowlisted!")
+      } else if (blockchain.saleState === 3) {
+        setInitMessage("You are not Waitlisted.")
+      }
       setEligibile(false);
     }
   }
@@ -584,7 +491,6 @@ function App() {
   };
 
   const disconnect = () => {
-    console.log('disconnect')
     window.location.reload();
   }
 
@@ -626,7 +532,8 @@ function App() {
             <div className='mintContainer'>
               <div className='mintContainerInner'>
                 {
-                  isConnected && (blockchain.saleState === 0 || ((blockchain.saleState === 1 || blockchain.saleState === 2) && !isEligible)) ? (
+                  isConnected && (blockchain.saleState === 0 || ((blockchain.saleState === 1 || blockchain.saleState === 2 || blockchain.saleState === 3)
+                    && !isEligible)) ? (
                     <>
                     <s.Container3 flex={2}>
                       <s.Container flex={2} jc={"center"} ai={"center"}>
@@ -635,7 +542,7 @@ function App() {
                           fontSize: 45,
                           fontWeight: "bold",
                           color: "#fff3e3",}}>
-                          { blockchain.saleState === 0 ? "Minting is not allowed at the moment!" : "You are not OG/whitelisted!" }
+                          { blockchain.saleState === 0 ? "Minting is not allowed at the moment!" : initErrMsg }
                         </s.TextTitle>
                         <s.SpacerSmall />
                         <s.TextDescription2>
@@ -648,15 +555,6 @@ function App() {
                         </s.TextDescription3>
                       </s.Container>
                     </s.Container3>
-                      {/* <h2>Minted:5001/5001</h2>
-                      <h3>1 Charlie = 0.001 ETH.</h3>
-                      <div className='mintConatinerInnermost'>
-                      <button  className="mbtn" > - </button>
-                      <p>1</p>
-                      <button  className="abtn" > + </button>
-                      </div>
-                      <ReCAPTCHA  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" className='g-recaptcha' />
-                      <button   className="mntbutton" default>SOLD OUT!!!</button>    */}
                     </>
                   ) : (
                     <s.Container3 flex={2}>
@@ -688,31 +586,16 @@ function App() {
                         ) : (
                           <>
                             <h2>Minted:{data.totalSupply}/{CONFIG.MAX_SUPPLY}</h2>
-                            {/* <s.TextTitle style={{
-                              textAlign: "center",
-                              fontSize: 50,
-                              fontWeight: "bold",
-                              color: "#fff3e3",}}>
-                              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
-                            </s.TextTitle> */}
-                            {/* <s.SpacerSmall/> */}
                             { Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
                               <>
                                 <s.SpacerSmall />
                                 <h2>SOLD OUT!</h2>
-                                {/* <s.TextTitle style={{ textAlign: "center", color: "#fff3e3" }}>
-                                  The sale has ended.
-                                </s.TextTitle> */}
                               </>
                             ) : (
                               <>
                                 <h3>
-                                  1 Charlie = { blockchain.saleState === 3 ? CONFIG.DISPLAY_COST : (blockchain.saleState === 1 ? CONFIG.DISPLAY_COST_OG : CONFIG.DISPLAY_COST_WL)}{" "}ETH.
+                                  1 Charlie = { CONFIG.DISPLAY_COST }{" "}ETH.
                                 </h3>
-                                {/* <s.TextTitle style={{ textAlign: "center", color: "#fff3e3" }}>
-                                  1 Charlie = { blockchain.saleState === 3 ? CONFIG.DISPLAY_COST : (blockchain.saleState === 1 ? CONFIG.DISPLAY_COST_OG : CONFIG.DISPLAY_COST_WL)}{" "}
-                                  {CONFIG.NETWORK.SYMBOL}.
-                                </s.TextTitle> */}
                                 <s.SpacerSmall />
                                 { feedback !== "" ? (
                                   <>
@@ -744,33 +627,6 @@ function App() {
                                     + 
                                   </button>
                                 </div>
-                                {/* <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                                  <StyledRoundButton2 style={{ lineHeight: 0.4 }}
-                                    disabled={claimingNft ? 1 : 0}
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      decrementMintAmount();
-                                    }}>
-                                    -
-                                  </StyledRoundButton2>
-                                  <s.SpacerMedium />
-                                  <s.TextDescription style={{
-                                    textAlign: "center",
-                                    color: "#fff3e3",
-                                    fontWeight: "bold",
-                                    fontSize: "35px"}}>
-                                    {mintAmount}
-                                  </s.TextDescription>
-                                  <s.SpacerMedium />
-                                  <StyledRoundButton2 disabled={claimingNft ? 1 : 0}
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      incrementMintAmount();
-                                    }}>
-                                    +
-                                  </StyledRoundButton2>
-                                </s.Container> */}
-                                {/* <s.SpacerSmall /> */}
                                 <form onSubmit={(e) => {
                                   e.preventDefault();
                                   mintSubmit();
@@ -780,23 +636,10 @@ function App() {
                                     type="submit">
                                     {claimingNft ? "MINTING..." : "MINT"}
                                   </button>
-                                  {/* <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                                    <StyledButton3 disabled={(!captchaSuccess && !claimingNft) || (captchaSuccess && claimingNft) ? 1 : 0}
-                                      type="submit">
-                                      {claimingNft ? "MINTING..." : "MINT"}
-                                    </StyledButton3>
-                                  </s.Container> */}
-                                  {/* <s.SpacerSmall/> */}
                                   <ReCAPTCHA className='g-recaptcha'
                                       sitekey={process.env.REACT_APP_SITE_KEY}
                                       ref={captchaRef}
                                       onChange={onChange}/>
-                                  {/* <s.Container ai={"center"} jc={"center"} fd={"row"}>
-                                    <ReCAPTCHA className='g-recaptcha'
-                                      sitekey={process.env.REACT_APP_SITE_KEY}
-                                      ref={captchaRef}
-                                      onChange={onChange}/>
-                                  </s.Container> */}
                                   <input type="hidden" name="hp-2" value="" ref={mintRef}/>
                                 </form>
                               </>
