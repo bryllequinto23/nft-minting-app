@@ -471,7 +471,7 @@ function App() {
       if (blockchain.saleState === 1) {
         setInitMessage("You are not a Charlie's Angel!")
       } else if (blockchain.saleState === 2) {
-        setInitMessage("You are not Charlisted/Allowlisted!")
+        setInitMessage("You are not Charlisted / Allowlisted!")
       } else if (blockchain.saleState === 3) {
         setInitMessage("You are not Waitlisted.")
       }
@@ -537,13 +537,9 @@ function App() {
                     <>
                     <s.Container3 flex={2}>
                       <s.Container flex={2} jc={"center"} ai={"center"}>
-                        <s.TextTitle style={{
-                          textAlign: "center",
-                          fontSize: 45,
-                          fontWeight: "bold",
-                          color: "#fff3e3",}}>
+                        <p className="initMessage">
                           { blockchain.saleState === 0 ? "Minting is not allowed at the moment!" : initErrMsg }
-                        </s.TextTitle>
+                        </p>
                         <s.SpacerSmall />
                         <s.TextDescription2>
                           {walletDisplay}
@@ -561,13 +557,12 @@ function App() {
                       <s.Container flex={2} jc={"center"} ai={"center"}>
                         { !isConnected ? (
                           <s.Container ai={"center"} jc={"center"}>
-                            <s.SpacerSmall/>
                             <form onSubmit={(e) => {
                                 e.preventDefault();
                                 submitForm();
                               }}>
                               <input type="hidden" name="hp" value="" ref={inputRef}/>
-                              <button className="mntbutton" type="submit">
+                              <button className="mntbutton connect" type="submit">
                                 CONNECT WALLET
                               </button>
                             </form>

@@ -42,10 +42,11 @@ export const Container3 = styled.div
   `
 
 export const TextTitle = styled.p`
-  color: var(--primary-text);
-  font-size: 33px;
+  font-size: 45px;
   font-weight: bold;
   line-height: 1.6;
+  textAlign: center;
+  color: "#fff3e3";
 `;
 
 export const TextDescription = styled.p`

@@ -7,6 +7,7 @@ import Web3Modal from "web3modal"
 // log
 import { fetchData } from "../data/dataActions";
 import axios from "axios";
+import { providers } from "@web3modal/ethereum";
 
 const connectRequest = () => {
   return {
@@ -36,12 +37,6 @@ const updateAccountRequest = (payload) => {
 };
 
 const providerOptions = {
-  walletconnect: {
-    package: WalletConnectProvider, // required
-    options: {
-      infuraId: "2d75ec6e41fc447682a245241185d5ea" // required
-    }
-  },
   coinbasewallet: {
     package: CoinbaseWalletSDK, // Required
     options: {
